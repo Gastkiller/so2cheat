@@ -20,40 +20,40 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
     .container {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
       background: #1a1a1a;
-      padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      padding: 35px 25px;
+      border-radius: 24px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
       text-align: center;
     }
 
     h1 {
       color: #00ffcc;
-      margin-bottom: 15px;
-      font-size: 24px;
+      margin-bottom: 25px;
+      font-size: 28px;
     }
 
     p {
       color: #bbbbbb;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     .download-btn {
       display: inline-block;
-      margin-top: 25px;
-      padding: 14px 25px;
+      margin-top: 35px;
+      padding: 18px 35px;
       background-color: #00cc99;
       color: #fff;
-      border-radius: 12px;
+      border-radius: 14px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
       text-decoration: none;
       transition: background-color 0.3s ease;
       cursor: pointer;
@@ -72,36 +72,37 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.75);
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
     .modal-content {
       background-color: #1a1a1a;
-      padding: 25px 20px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 350px;
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 420px;
       color: #fff;
       text-align: center;
-      box-shadow: 0 0 20px #00ffcc;
+      box-shadow: 0 0 25px #00ffcc;
     }
 
     .modal-content p {
-      margin-bottom: 20px;
-      font-size: 15px;
-      line-height: 1.4;
+      margin-bottom: 25px;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
     #confirmBtn {
       background-color: #00cc99;
-      padding: 12px 25px;
+      padding: 15px 30px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       color: white;
       font-weight: bold;
-      font-size: 15px;
+      font-size: 18px;
       cursor: not-allowed;
       opacity: 0.6;
       transition: opacity 0.3s;
@@ -120,7 +121,7 @@
     <p>Добро пожаловать в приватный хаб читов для Standoff 2.<br>
        Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
 
-    <span class="download-btn" onclick="showModal()">Скачать чит</span>
+    <span class="download-btn" onclick="showModal()">📥 Скачать чит</span>
   </div>
 
   <div id="infoModal" class="modal">
@@ -150,7 +151,7 @@
           btn.innerText = `Подождите ${seconds} секунд...`;
         } else {
           clearInterval(countdown);
-          btn.innerText = "Я понял";
+          btn.innerText = "✅ Я понял";
           btn.disabled = false;
           btn.classList.add('enabled');
           btn.onclick = () => {
