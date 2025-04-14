@@ -1,111 +1,91 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Standoff 2 Cheat HUB</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      background: #0f0f0f;
-      font-family: 'Segoe UI', sans-serif;
-      color: #f2f2f2;
-    }
-
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+      background: #0f0f0f;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding-top: 100px;
     }
 
     .container {
-      width: 100%;
-      height: auto;
-      max-width: 480px;
+      max-width: 500px;
+      margin: auto;
       background: #1a1a1a;
-      border-radius: 24px;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.06);
-      padding: 30px 20px;
-      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     }
 
     h1 {
-      font-size: 32px;
       color: #00ffcc;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 20px;
       color: #bbbbbb;
-      margin-bottom: 40px;
-      line-height: 1.6;
+      font-size: 16px;
     }
 
     .download-btn {
-      background: #00cc99;
-      color: white;
-      font-size: 24px;
-      padding: 20px 40px;
-      border-radius: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 0 10px #00cc99;
       display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #00cc99;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
     .download-btn:hover {
       background-color: #00b386;
     }
 
+    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
-      z-index: 999;
-      top: 0; left: 0;
+      z-index: 10;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.8);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      background-color: rgba(0,0,0,0.7);
     }
 
     .modal-content {
       background-color: #1a1a1a;
-      padding: 30px 25px;
-      border-radius: 20px;
-      width: 100%;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 80%;
       max-width: 400px;
+      color: #fff;
       text-align: center;
-      box-shadow: 0 0 25px #00ffcc;
+      box-shadow: 0 0 20px #00ffcc;
     }
 
     .modal-content p {
-      margin-bottom: 25px;
-      font-size: 20px;
+      margin-bottom: 20px;
     }
 
     #confirmBtn {
       background-color: #00cc99;
-      padding: 16px 40px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 14px;
+      border-radius: 8px;
       color: white;
       font-weight: bold;
-      font-size: 20px;
       cursor: not-allowed;
       opacity: 0.6;
-      transition: opacity 0.3s;
     }
 
     #confirmBtn.enabled {
@@ -119,15 +99,18 @@
   <div class="container">
     <h1>Standoff 2 Cheat HUB</h1>
     <p>Добро пожаловать в приватный хаб читов для Standoff 2.<br>
-      Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
-    <div class="download-btn" onclick="showModal()">📥 Скачать чит</div>
+       Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
+
+    <!-- Кнопка скачивания вызывает модальное окно -->
+    <span class="download-btn" onclick="showModal()">Скачать чит</span>
   </div>
 
+  <!-- Модальное окно -->
   <div id="infoModal" class="modal">
     <div class="modal-content">
       <p>
         ⚠️ <strong>Уведомление:</strong><br>
-        После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, иначе чит-меню не будет отображаться!
+        После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, ИНАЧЕ ЧИТ-МЕНЮ НЕ БУДЕТ ОТОБРАЖАТСЯ!
       </p>
       <button id="confirmBtn" disabled>Подождите 10 секунд...</button>
     </div>
@@ -135,14 +118,11 @@
 
   <script>
     function showModal() {
-      const modal = document.getElementById('infoModal');
-      modal.style.display = 'flex';
-
-      const btn = document.getElementById('confirmBtn');
+      document.getElementById('infoModal').style.display = 'block';
+      let btn = document.getElementById('confirmBtn');
       let seconds = 10;
       btn.innerText = `Подождите ${seconds} секунд...`;
       btn.classList.remove('enabled');
-      btn.disabled = true;
 
       let countdown = setInterval(() => {
         seconds--;
@@ -150,12 +130,11 @@
           btn.innerText = `Подождите ${seconds} секунд...`;
         } else {
           clearInterval(countdown);
-          btn.innerText = "✅ Я понял";
+          btn.innerText = "Я понял";
           btn.disabled = false;
           btn.classList.add('enabled');
           btn.onclick = () => {
-            window.location.href = "https://drive.google.com/uc?export=download&id=1LyQIFADCeZzLq-yg59VzpOyMp7IIkCLy"; // сюда свою ссылку
-            modal.style.display = 'none';
+            window.location.href = "https://drive.google.com/uc?export=download&id=1LyQIFADCeZzLq-yg59VzpOyMp7IIkCLy";
           };
         }
       }, 1000);
