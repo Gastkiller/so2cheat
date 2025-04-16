@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Standoff 2 Cheat HUB</title>
+  <title>Чит HUB</title>
   <style>
     body {
       margin: 0;
@@ -105,11 +105,13 @@
 <body>
 
   <div class="container">
-    <h1>Standoff 2 Cheat HUB</h1>
-    <p>Добро пожаловать в приватный хаб читов.<br>Скачай нужный чит ниже:</p>
+    <h1>Чит HUB</h1>
+    <p>Выбери нужный чит для загрузки:</p>
 
     <span class="download-btn" onclick="showModal('standoff')">Standoff</span>
     <span class="download-btn" onclick="showModal('pubg')">PUBG</span>
+    <span class="download-btn" onclick="showModal('roblox')">Roblox</span>
+    <span class="download-btn" onclick="showModal('blackrussia')">Black Russia</span>
   </div>
 
   <!-- Модальное окно -->
@@ -125,8 +127,10 @@
 
   <script>
     let downloadLinks = {
-      standoff: "https://pixeldrain.com/u/WuJKY1QP",
-      pubg: "https://www.mediafire.com/file/nmtm3vdg7alaetl/client.apk/file"
+      standoff: "https://workupload.com/start/AeahktTg4BC",
+      pubg: "https://workupload.com/start/4aAZ7Xkhkqg",
+      roblox: "https://workupload.com/start/9zV8MCx2fUa", // ← Замени ссылку
+      blackrussia: "https://workupload.com/start/YK9E3rpKhMk" // ← Замени ссылку
     };
 
     function showModal(game) {
@@ -153,7 +157,6 @@
       }, 1000);
     }
 
-    // Закрытие по нажатию вне модального окна
     window.onclick = function(event) {
       let modal = document.getElementById('infoModal');
       if (event.target === modal) {
